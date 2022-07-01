@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="row">
+    <div class="col-10">
+        <div class="card" >
+            <div class="card-body">
+                <h4 class="card-title">Adicionar livros </h4>
+                <div class="text-right mr-3">
+                    <a href="/catalogos/criar/{{ p.id }}">
+                        <button type="button" class="btn mb-1 btn-info">
+                            Add <span class="btn-icon-right"><i class="fa fa-plus"></i></span>
+                        </button>
+                    </a>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table header-border">
+                        <thead>
+                            <tr>
+                                <th width="70%">Nome</th>
+                                <th width="50%">Autor</th>
+                                <th width="50%">ISBN</th>
+                                <th width="50%">Editora</th>
+                                <th> </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% if catalogos %}
+                            {% for p in catalogos %}
+                            <tr>
+                                <td> <a href="/catalogos/{{ p.id }}/">{{ p.nome }}</a> </td>
+                                <td> <a href="/catalogos/{{ p.id }}/">{{ p.autor }}</a> </td>
+                                <td> <a href="/catalogos/{{ p.id }}/">{{ p.isbn }}</a> </td>
+                                <td> <a href="/catalogos/{{ p.id }}/">{{ p.editora }}</a> </td>
+
+                                <td>
+                                    <a href="/catalogos/editar/{{ p.id }}">
+                                        <button type="button" class="btn mb-1 btn-primary">
+                                            Editar <span class="btn-icon-right"> <i class="fa fa-edit"></i> </span>
+                                        </button>
+                                    </a>
+                                </td>
+                                <td> <a href="/catalogos/excluir/{{ p.id }}">
+                                        <button type="button" class="btn mb-1 btn-danger">
+                                            Excluir <span class="btn-icon-right"> <i class="fa fa-close"></i> </span>
+                                        </button>
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            {% else %}
+                            <tr>
+                                <td>Não há livros cadastradas.</td>
+                            </tr>
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

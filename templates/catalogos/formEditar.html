@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-11">
+        <div class="card">
+            <div class="card-body">
+                <form action="/catalogos/editar/{{livro_id}}/" method="post">
+                    {% csrf_token %}
+
+                    {{ form.as_p }}
+
+                    <input type="submit" class="btn btn-primary" value="Salvar">
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

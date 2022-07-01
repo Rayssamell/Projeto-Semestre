@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <p>Nome: {{ livro.nome }} </p>
+                <p>Autor: {{livro.autor}} </p>
+                <p>Editora: {{livro.editora}} </p>
+                <p>Ano de Publicação: {{livro.anoPublicacao}} </p>
+                <p>ISBN: {{ livro.isbn }} </p>
+                <p>Disciplina: {{livro.disciplina}} </p>
+                <p>Quantidade: {{livro.quantidade}} </p>
+                <p>Série Alvo: {{livro.serieAlvo}} </p>
+                <p>{{livro.imagem}} </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
